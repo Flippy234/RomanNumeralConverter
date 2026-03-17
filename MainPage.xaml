@@ -6,13 +6,15 @@
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
-            Padding="30,0"
+            Padding="20,40,20,20"
             VerticalOptions="Center">
             <Label Text="Roman Numerals to Numbers"/>
-            <Entry x:Name="txtRomanNumeral" Keyboard="Numeric" TextChanged="TxtRomanNumeral_OnTextChanged" />
+            <Entry x:Name="txtInput" Keyboard="Numeric" />
+            
+            <Label x:Name="lblResult" FontSize="40" FontAttributes="Bold"/>
             
             <StackLayout Orientation="Horizontal" >
-                <Button Text="Clear" HorizontalOptions="FillAndExpand" Clicked="btnClear_OnClicked"/>
+                <Button Text="Clear" HorizontalOptions="FillAndExpand" Clicked="btnClear_OnClicked" Padding="20"/>
                 <Button Text="Convert" HorizontalOptions="FillAndExpand" Clicked="btnConvert_OnClicked"/>
             </StackLayout>
         </VerticalStackLayout>

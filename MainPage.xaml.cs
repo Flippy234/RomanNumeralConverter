@@ -1,7 +1,11 @@
-﻿namespace RomanConverter;
+﻿using RomanConverter.Custom;
+
+namespace RomanConverter;
 
 public partial class MainPage : ContentPage
 {
+    private Converter Converter = new Converter();
+    
     public MainPage()
     {
         InitializeComponent();
@@ -9,19 +13,35 @@ public partial class MainPage : ContentPage
     }
 
 
-    private void TxtRomanNumeral_OnTextChanged(object sender, TextChangedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
-
-
     private void btnClear_OnClicked(object sender, EventArgs e)
     {
-        txtRomanNumeral.Text = string.Empty;
+        txtInput.Text = string.Empty;
+        lblResult.Text = string.Empty;
     }
 
     private void btnConvert_OnClicked(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        string input = txtInput.Text;
+
+        if (string.IsNullOrEmpty(input))
+        {
+            lblResult.Text = "Enter a numerical value";
+            return;
+        }
+
+        if (int.TryParse(input, out int number))
+        {
+            if (number <= 0)
+            {
+                lblResult.Text = "Enter a positive numeral value";
+                return;
+            }
+            lblResult.Text = Converter.NumberToRoman(number);
+        }
+        else
+        {
+            int result = Converter.RomanToNumber(input);
+            lblResult.Text = result.ToString();
+        }
     }
 }
