@@ -1,22 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RomanConverter.MainPage">
+             x:Class="RomanConverter.MainPage"
+             BackgroundColor="#FFF8E1"
+             Title="Roman Numeral Converter"
+             Shell.BackgroundColor="DarkCyan"
+             Shell.TitleColor="Black">
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
-            Padding="20,40,20,20"
-            VerticalOptions="Center">
-            <Label Text="Roman Numerals to Numbers"/>
-            <Entry x:Name="txtInput" Keyboard="Numeric" />
+            Spacing="40"
+            Padding="10,0,0,0"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <Image
+                Source="roman"
+                HeightRequest="192"
+                HorizontalOptions="Center" />
             
-            <Label x:Name="lblResult" FontSize="40" FontAttributes="Bold"/>
+            <Label Text="Roman Numerals to Numbers and Numbers to Roman Numbers!" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Entry x:Name="txtInput" Keyboard="Numeric" BackgroundColor="LightSalmon" PlaceholderColor="Black" Placeholder="Enter number or Roman Numeral" FontSize="18" HorizontalOptions="Center" Margin="0,10,0,10" WidthRequest="300" MaximumWidthRequest="400"/>
             
-            <StackLayout Orientation="Horizontal" >
-                <Button Text="Clear" HorizontalOptions="FillAndExpand" Clicked="btnClear_OnClicked" Padding="20"/>
-                <Button Text="Convert" HorizontalOptions="FillAndExpand" Clicked="btnConvert_OnClicked"/>
-            </StackLayout>
+            <Label x:Name="lblResult" FontSize="48" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+            
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button Text="Clear" Clicked="btnClear_OnClicked" TextColor="DarkSlateGrey" FontSize="24" WidthRequest="140" HeightRequest="60" BackgroundColor="LightCoral" CornerRadius="10" FontAttributes="Bold"/>
+                <Button Text="Convert" Clicked="btnConvert_OnClicked" TextColor="DarkSlateGrey" FontSize="24" WidthRequest="140" HeightRequest="60" BackgroundColor="LightSkyBlue" CornerRadius="10" FontAttributes="Bold" />
+            </HorizontalStackLayout>
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
